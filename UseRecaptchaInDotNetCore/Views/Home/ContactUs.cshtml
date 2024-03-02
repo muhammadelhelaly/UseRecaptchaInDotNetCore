@@ -1,0 +1,57 @@
+﻿@model ContactUseFormViewModel
+
+@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<h1>Contact Us</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <section>
+            <form id="contactUs" method="post">
+                <hr />
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label"></label>
+                    <input asp-for="Name" class="form-control" placeholder="Your name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" placeholder="Your email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Message" class="form-label"></label>
+                    <textarea asp-for="Message" class="form-control" placeholder="Your message" rows="4"></textarea>
+                    <span asp-validation-for="Message" class="text-danger"></span>
+                </div>
+@*                 <recaptcha />
+ *@                <div>
+                    <button id="submit-btn" type="submit" class="btn btn-primary">Send</button>
+                </div>
+ </form>
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    @* <script>
+        $(document).ready(function () {
+            $('#login-submit').on('click', function (e) {
+                e.preventDefault();
+                var recaptcha = grecaptcha.getResponse();
+
+                if (recaptcha === '') {
+                    alert('no recaptcha');
+                } else {
+                    $.get({
+                        url: ''
+                    });
+                }
+            });
+        });
+    </script> *@
+}
