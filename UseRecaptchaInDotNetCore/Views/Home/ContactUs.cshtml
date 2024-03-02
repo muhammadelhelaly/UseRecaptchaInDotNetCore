@@ -27,31 +27,31 @@
                     <textarea asp-for="Message" class="form-control" placeholder="Your message" rows="4"></textarea>
                     <span asp-validation-for="Message" class="text-danger"></span>
                 </div>
-@*                 <recaptcha />
- *@                <div>
+                <recaptcha language="ar-EG" />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div>
                     <button id="submit-btn" type="submit" class="btn btn-primary">Send</button>
                 </div>
- </form>
+         </form>
         </section>
     </div>
 </div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
-    @* <script>
+    <script>
         $(document).ready(function () {
-            $('#login-submit').on('click', function (e) {
+            $('#submit-btn').on('click', function(e) {
                 e.preventDefault();
+
                 var recaptcha = grecaptcha.getResponse();
 
                 if (recaptcha === '') {
-                    alert('no recaptcha');
+                    alert('ReCaptcha verification is failed');
                 } else {
-                    $.get({
-                        url: ''
-                    });
+                    $('#contactUs').submit();
                 }
             });
         });
-    </script> *@
+    </script>
 }

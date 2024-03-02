@@ -4,7 +4,7 @@ namespace UseRecaptchaInDotNetCore.ViewModels;
 
 public class ContactUseFormViewModel
 {
-    [Range(2,100)]
+    [StringLength(100)]
     public string Name { get; set; } = string.Empty;
 
     [EmailAddress]

@@ -1,7 +1,11 @@
+using AspNetCore.ReCaptcha;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddReCaptcha(builder.Configuration.GetSection("ReCaptcha"));
 
 var app = builder.Build();
 

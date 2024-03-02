@@ -1,3 +1,4 @@
+using AspNetCore.ReCaptcha;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using UseRecaptchaInDotNetCore.Models;
@@ -30,6 +31,7 @@ public class HomeController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [ValidateReCaptcha(ErrorMessage = "ReCaptcha verification is failed")]
     public IActionResult ContactUs(ContactUseFormViewModel model)
     {
         if (!ModelState.IsValid)
